@@ -122,18 +122,18 @@ try {
   async remove(term: string) {
 //delete usuarios
 
-// const cars = await this.findOne( term );
+const cars = await this.findOne( term );
 
-// await cars.deleteOne();
+await cars.deleteOne();
 
-//    return cars
+   return cars
 
 
 // const result = await this.carsModel.findByIdAndDelete( term );
-const { deletedCount,  } =  await this.carsModel.deleteOne({ _id: term })
+// const { deletedCount,  } =  await this.carsModel.deleteOne({ _id: term })
 
-if( deletedCount === 0 )
-throw new BadRequestException(`Cars with id "${ term }" not found`)
+// if( deletedCount === 0 )
+// throw new BadRequestException(`Cars with id "${ term }" not found`)
 
 
 }

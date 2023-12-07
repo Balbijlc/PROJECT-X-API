@@ -2,18 +2,20 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ServeStaticModule } from '@nestjs/serve-static';
-
-
-import { join } from 'path';
+import { ConfigModule } from '@nestjs/config';
 import { CarsModule } from './cars/Cars.module';
 import { CommonModule } from './common/common.module';
+
+import { join } from 'path';
+
 
 @Module({
   imports: [
     
     CarsModule,
     
-    MongooseModule.forRoot('mongodb://localhost:27017/project-x-api'),
+    ConfigModule.forRoot(),
+    MongooseModule.forRoot(process.env.MONGO_URI),
 
     ServeStaticModule.forRoot({
       rootPath: join(__dirname,'..','public'),
@@ -25,4 +27,10 @@ import { CommonModule } from './common/common.module';
   controllers: [],
   providers: [],
 })
-export class AppModule {}
+export class AppModule {
+
+
+  constructor() {
+    console.log(process.env)
+  }
+}
