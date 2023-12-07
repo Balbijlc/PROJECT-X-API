@@ -1,4 +1,4 @@
-import { IsInt, IsPositive, IsString, MinLength, minLength } from "class-validator";
+import { IsString, MinLength,  } from "class-validator";
 
 
 
@@ -13,5 +13,5 @@ export class CreateCarsDto {
 
     @IsString()
     @MinLength(1)
-    Model: string;
+    name: string;
 }

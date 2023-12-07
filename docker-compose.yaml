@@ -1,12 +1,32 @@
+
 version: '3'
 
 services:
-   db:
-      image: mongo:5
-      restart: always
-      ports:
-       - 8081:8081
-      environment:
-       MONGODB_DATABASE: project-x-api
-      volumes:
-       - ./mongo:/data/db
+  db:
+    image: mongo:5
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: balbijlc
+      MONGO_INITDB_ROOT_PASSWORD: oaE2QcyYMUEQN0O8
+      MONGODB_DATABASE: project-x-api
+
+
+
+
+
+
+
+# version: '3'
+
+# services:
+#    db:
+#       image: mongo:5
+#       restart: always
+#       ports:
+#        - 8081:8081
+#       environment:
+#        MONGODB_DATABASE: project-x-api
+#       volumes:
+#        - ./mongo:/data/db

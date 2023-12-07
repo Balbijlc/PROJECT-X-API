@@ -22,7 +22,7 @@ export class CarsService {
   {
     //Peticion post
 
-      createCarsDto.Model = createCarsDto.Model.toLocaleLowerCase();
+      createCarsDto.name = createCarsDto.name.toLocaleLowerCase();
 
 
     try {
@@ -31,17 +31,16 @@ export class CarsService {
       
     } catch (error) {
       if(error.code === 11000){
+        console.log(error)
         throw new BadRequestException(`Cars exists in db ${JSON.stringify ( error.keyValue )}`);
       }
-      console.log(error)
-      throw new InternalServerErrorException( `cant create cars - Chec server logs`)
+     
+      throw new InternalServerErrorException( `No consigo nad`)
       
     }
 
 
-  
-
-  }
+ }
 
 
 
@@ -77,11 +76,11 @@ export class CarsService {
     //brand 
 
   if( !Cars ){
-    Cars = await this.carsModel.findOne({ Model:term }); 
+    Cars = await this.carsModel.findOne({ name:term }); 
   }
 
      if( !Cars ){
-      throw new NotFoundException( `Cars wuth id, name or plate or brand "${ term }" not found ` );
+      throw new NotFoundException( `Cars wuth id, Model or plate or brand "${ term }" not found ` );
      }
 
     return Cars;
@@ -98,8 +97,8 @@ export class CarsService {
     
     
 
-    if ( updateCarsDto.Model ) 
-         updateCarsDto.Model = updateCarsDto.Model.toLocaleLowerCase();
+    if ( updateCarsDto.name ) 
+         updateCarsDto.name = updateCarsDto.name.toLocaleLowerCase();
 
 
 try {

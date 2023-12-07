@@ -16,8 +16,8 @@ export class Cars extends Document {
 
 
     @Prop({
-        unique:true,
-        idex:true
+        
+        
     })
     brand: string;
 
@@ -27,7 +27,7 @@ export class Cars extends Document {
         unique:true,
         idex:true
     })
-    Model: string;
+    name: string;
 
 
 }
