@@ -1,8 +1,9 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode, Put } from '@nestjs/common';
 import { CarsService } from './Cars.service';
 import { CreateCarsDto } from './dto/create-user.dto';
 import { UpdateCarsDto } from './dto/update-Cars.dto';
 import { ParseMongoIdPipe } from 'src/common/pipes/parse-mongo-id/parse-mongo-id.pipe';
+import mongoose from 'mongoose';
 
 
 @Controller('api/cars')
@@ -33,8 +34,15 @@ export class UsersController {
     return this.carsService.findOne( term ) ;
   }
 
-  @Patch(':term')
+  @Put(':term')
   update(@Param('term') term: string, @Body() updateCarsDto: UpdateCarsDto) {
+
+    
+    return this.carsService.update(term, updateCarsDto);
+  }
+
+  @Patch(':term')
+  updatepath(@Param('term') term: string, @Body() updateCarsDto: UpdateCarsDto) {
 
     
     return this.carsService.update(term, updateCarsDto);

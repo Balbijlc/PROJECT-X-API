@@ -89,7 +89,7 @@ export class CarsService {
   }
 
      if( !Cars ){
-      throw new NotFoundException( `Cars wuth id, Model or plate or brand "${ term }" not found ` );
+      throw new NotFoundException( `Cars wuth id "${ term }" not found ` );
      }
 
     return Cars;
