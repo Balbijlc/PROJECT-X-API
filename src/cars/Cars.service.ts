@@ -7,6 +7,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { CreateCarsDto } from './dto/create-user.dto';
 import { UpdateCarsDto } from './dto/update-Cars.dto';
 import { isModuleNamespaceObject } from 'util/types';
+import { catchError } from 'rxjs';
 
 @Injectable()
 export class CarsService {
@@ -50,7 +51,15 @@ export class CarsService {
 
    
 
-    return "retorna todos los carros";
+    return new Promise((resolve, reject)=>{
+      try{
+        const cars = this.carsModel.find().exec();
+        resolve(cars)
+
+      } catch(error){
+            reject(error)
+      }
+    });
   }
 
   async findOne(term: string) {
