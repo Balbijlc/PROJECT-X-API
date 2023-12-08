@@ -128,11 +128,6 @@ await cars.deleteOne();
    return cars
 
 
-// const result = await this.carsModel.findByIdAndDelete( term );
-// const { deletedCount,  } =  await this.carsModel.deleteOne({ _id: term })
-
-// if( deletedCount === 0 )
-// throw new BadRequestException(`Cars with id "${ term }" not found`)
 
 
 }

@@ -1,17 +1,20 @@
-import { IsString, MinLength,  } from "class-validator";
+import { IsEmpty, IsNotEmpty, IsNumber, IsString, MinLength,  } from "class-validator";
 
 
 
 export class CreateCarsDto {
 
-    
-    @MinLength(5)
+    @IsNotEmpty()
+   @IsNumber()
     plate: number;
 
+    @IsNotEmpty()
     @IsString()
     brand: string;
 
+   
+    @IsNotEmpty()
     @IsString()
-    @MinLength(1)
-    name: string;
+    
+      name: string;
 }
