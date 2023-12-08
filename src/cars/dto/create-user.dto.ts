@@ -8,7 +8,7 @@ export class CreateCarsDto {
    @IsNumber()
     plate: number;
 
-    @IsNotEmpty()
+   
     @IsString()
     brand: string;
 
