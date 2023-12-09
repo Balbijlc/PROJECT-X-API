@@ -8,24 +8,25 @@ import { CommonModule } from './common/common.module';
 
 import { join } from 'path';
 import { userModule } from './users/users.module';
+import { AuthService } from './users/users.service';
 
 
 
 @Module({
   imports: [
     
-    CarsModule,
     
     ConfigModule.forRoot(),
     MongooseModule.forRoot(process.env.MONGO_URI),
-
+    
     ServeStaticModule.forRoot({
       rootPath: join(__dirname,'..','public'),
-      }),
-
+    }),
     CommonModule,
+    CarsModule,
+      userModule,
 
-   userModule
+
   
   ],
   controllers: [],

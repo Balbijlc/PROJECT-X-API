@@ -15,6 +15,6 @@ import { Cars, CarsSchema } from './entities/Cars.entity';
 ])
   ],
   controllers: [UsersController],
-  providers: [CarsService],
+  providers: [CarsService,],
 })
 export class CarsModule {}
