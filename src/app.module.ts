@@ -7,6 +7,8 @@ import { CarsModule } from './cars/Cars.module';
 import { CommonModule } from './common/common.module';
 
 import { join } from 'path';
+import { userModule } from './users/users.module';
+
 
 
 @Module({
@@ -21,7 +23,9 @@ import { join } from 'path';
       rootPath: join(__dirname,'..','public'),
       }),
 
-    CommonModule
+    CommonModule,
+
+   userModule
   
   ],
   controllers: [],

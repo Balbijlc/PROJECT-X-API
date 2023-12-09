@@ -5,8 +5,8 @@ import { IsEmpty, IsNotEmpty, IsNumber, IsString, MinLength,  } from "class-vali
 export class CreateCarsDto {
 
     @IsNotEmpty()
-   @IsNumber()
-    plate: number;
+  
+    plate: string;
 
    
     @IsString()

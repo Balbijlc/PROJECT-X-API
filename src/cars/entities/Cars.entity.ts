@@ -12,7 +12,7 @@ export class Cars extends Document {
         unique:true,
         idex:true
     })
-    plate: number;
+    plate: string;
 
 
     @Prop({
